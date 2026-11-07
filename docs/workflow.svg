@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="886" viewBox="0 0 1000 886" role="img" aria-labelledby="title desc">
+  <title id="title">Smart TTS 如何发送语音回复</title>
+  <desc id="desc">AI 判断何时适合发送语音，再按设置优化字数、内容和音频标签。会话人格可为优化提供语气和风格参考。关闭优化、没有适用项目或优化失败时，使用原文合成。默认原文达到 100 字符才进行字数优化，短文没有其他优化项目时直接合成。所选 TTS 供应商合成成功后发送语音；合成失败时发送最初的原文文字。</desc>
+  <defs>
+    <marker id="arrow-main" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1 L7 4 L1 7" fill="none" stroke="#337568" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-side" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1 L7 4 L1 7" fill="none" stroke="#A57943" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1 L7 4 L1 7" fill="none" stroke="#7C8A99" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      text { font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif; }
+      .heading { fill: #18342F; font-size: 28px; font-weight: 700; }
+      .label { fill: #203D37; font-size: 21px; font-weight: 600; text-anchor: middle; }
+      .body { fill: #60736E; font-size: 14px; text-anchor: middle; }
+      .small { fill: #75847F; font-size: 13px; }
+      .edge { fill: #506B63; font-size: 14px; text-anchor: middle; }
+      .edge-side { fill: #95703D; font-size: 14px; text-anchor: middle; }
+      .main-line { fill: none; stroke: #337568; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow-main); }
+      .side-line { fill: none; stroke: #A57943; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow-side); }
+      .muted-line { fill: none; stroke: #7C8A99; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow-muted); }
+    </style>
+  </defs>
+
+  <rect x="1" y="1" width="998" height="884" rx="22" fill="#FBFCFB" stroke="#E0E7E2"/>
+  <text x="48" y="55" class="heading">让 AI 决定何时用声音回复</text>
+  <text x="952" y="53" text-anchor="end" class="small" letter-spacing="1.2">SMART TTS</text>
+  <path d="M48 76 H952" stroke="#E4EBE6"/>
+
+  <path d="M500 184 V228" class="main-line"/>
+  <path d="M500 318 V380" class="main-line"/>
+  <text x="563" y="353" class="edge">按设置优化</text>
+  <path d="M315 273 H163 V380" class="muted-line"/>
+  <rect x="57" y="318" width="212" height="28" rx="6" fill="#FBFCFB"/>
+  <text x="163" y="337" class="edge">关闭优化 / 无适用项目</text>
+  <path d="M350 442 H278" class="side-line"/>
+  <text x="314" y="427" class="edge-side">优化失败</text>
+  <path d="M730 429 H650" class="muted-line" stroke-dasharray="4 4"/>
+  <path d="M500 478 V548" class="main-line"/>
+  <text x="566" y="519" class="edge">优化后文稿</text>
+  <path d="M163 478 V592 H350" class="muted-line"/>
+  <text x="257" y="578" class="edge">保留原文</text>
+  <path d="M425 636 V675 H365 V714" class="main-line"/>
+  <text x="306" y="700" class="edge">合成成功</text>
+  <path d="M575 636 V675 H695 V714" class="side-line"/>
+  <text x="754" y="700" class="edge-side">合成失败</text>
+
+  <rect x="315" y="108" width="370" height="76" rx="14" fill="#EAF3ED" stroke="#C3DACC"/>
+  <text x="500" y="139" class="label">AI 判断适合发送语音</text>
+  <text x="500" y="164" class="body">准备好回复内容，调用语音工具</text>
+
+  <rect x="315" y="228" width="370" height="90" rx="14" fill="#FFFFFF" stroke="#CAD8CE"/>
+  <text x="500" y="264" class="label">按你的设置处理文稿</text>
+  <text x="500" y="291" class="body">字数 · 内容 · 音频标签</text>
+
+  <rect x="350" y="380" width="300" height="98" rx="14" fill="#FFFFFF" stroke="#BDD4C6"/>
+  <text x="500" y="418" class="label">AI 优化文稿</text>
+  <text x="500" y="447" class="body">保留含义，按开启的项目编辑</text>
+
+  <rect x="730" y="387" width="220" height="84" rx="14" fill="#F4F6F4" stroke="#D5DED7"/>
+  <text x="840" y="421" class="label">参考会话人格</text>
+  <text x="840" y="448" class="body">开启时参考角色语气与风格</text>
+
+  <rect x="48" y="380" width="230" height="98" rx="14" fill="#F4F6F4" stroke="#D5DED7"/>
+  <text x="163" y="418" class="label">使用原文</text>
+  <text x="163" y="443" class="body">短文没有其他优化项目时</text>
+  <text x="163" y="463" class="body">直接用于合成</text>
+
+  <rect x="350" y="548" width="300" height="88" rx="14" fill="#EAF3ED" stroke="#BDD4C6"/>
+  <text x="500" y="584" class="label">TTS 生成语音</text>
+  <text x="500" y="612" class="body">使用你选择的供应商和音色</text>
+
+  <rect x="225" y="714" width="280" height="84" rx="14" fill="#DEEEE4" stroke="#AFCFBC"/>
+  <text x="365" y="748" class="label">发送语音消息</text>
+  <text x="365" y="775" class="body">用声音回复用户</text>
+
+  <rect x="555" y="714" width="280" height="84" rx="14" fill="#FAF1E5" stroke="#E3CFAE"/>
+  <text x="695" y="748" class="label">发送原文文字</text>
+  <text x="695" y="775" class="body">使用最初准备好的回复内容</text>
+
+  <path d="M48 834 H952" stroke="#E4EBE6"/>
+  <circle cx="55" cy="859" r="4" fill="#337568"/>
+  <text x="68" y="864" class="small">默认达到 100 字符才优化字数；短文仍可按设置优化内容或音频标签。</text>
+</svg>

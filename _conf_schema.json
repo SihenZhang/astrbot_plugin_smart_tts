@@ -1,0 +1,113 @@
+{
+  "tts_provider_id": {
+    "type": "string",
+    "description": "TTS 供应商",
+    "default": "",
+    "hint": "必选：选择已在 AstrBot 中配置并启用的 TTS 供应商，音色和模型沿用该供应商配置。",
+    "_special": "select_provider_tts"
+  },
+  "optimizer_provider_id": {
+    "type": "string",
+    "description": "文本优化 LLM 供应商",
+    "default": "",
+    "hint": "留空时使用当前会话的对话 LLM；选择后使用此供应商优化语音文稿。",
+    "_special": "select_provider",
+    "condition": { "optimization_enabled": true }
+  },
+  "optimization_enabled": {
+    "type": "bool",
+    "description": "启用文本优化",
+    "default": true,
+    "hint": "总开关。开启后根据原文长度和各项目开关组合优化；关闭或没有适用项目时，使用原文直接合成语音。"
+  },
+  "length_optimization_enabled": {
+    "type": "bool",
+    "description": "启用字数优化",
+    "default": true,
+    "hint": "仅当原始文本的字符数达到或超过字数上限目标时，提示 LLM 精简文稿。短文按其他已启用且适用的项目处理。",
+    "condition": { "optimization_enabled": true }
+  },
+  "target_max_chars": {
+    "type": "int",
+    "description": "字数上限目标",
+    "default": 100,
+    "hint": "范围 1–500，包含标点和空白。原文达到或超过此值时才进行字数优化，尽量控制在此字数内；实际输出可能略有出入。",
+    "slider": { "min": 1, "max": 500, "step": 1 },
+    "condition": {
+      "optimization_enabled": true,
+      "length_optimization_enabled": true
+    }
+  },
+  "content_optimization_enabled": {
+    "type": "bool",
+    "description": "启用内容优化",
+    "default": false,
+    "hint": "调整措辞、句式与口语表达，让文稿更适合朗读。",
+    "condition": { "optimization_enabled": true }
+  },
+  "audio_tag_optimization_enabled": {
+    "type": "bool",
+    "description": "启用音频标签优化",
+    "default": false,
+    "hint": "根据 TTS 供应商和模型特点，添加情绪、声音表现或停顿标签。",
+    "condition": { "optimization_enabled": true }
+  },
+  "audio_tag_provider": {
+    "type": "string",
+    "description": "音频标签模式",
+    "default": "auto",
+    "options": ["auto", "eleven_labs_legacy", "eleven_labs_enhanced", "custom"],
+    "hint": "推荐保持 auto，根据当前 TTS 供应商和模型选择适用规则。无法识别时跳过标签优化；也可手动选择模型支持的模式。",
+    "condition": {
+      "optimization_enabled": true,
+      "audio_tag_optimization_enabled": true
+    }
+  },
+  "audio_tag_custom_prompt": {
+    "type": "text",
+    "description": "自定义音频标签提示词",
+    "default": "",
+    "hint": "音频标签模式为 custom 时使用。请按所用 TTS 的能力填写普通文本；留空时跳过标签优化，其他已启用的适用优化仍会运行。",
+    "condition": {
+      "optimization_enabled": true,
+      "audio_tag_optimization_enabled": true,
+      "audio_tag_provider": "custom"
+    }
+  },
+  "persona_injection_enabled": {
+    "type": "bool",
+    "description": "注入当前会话人格",
+    "default": true,
+    "hint": "存在实际优化项目时，提供当前会话选定的人格，帮助保持角色的语气、称呼和表达方式。",
+    "condition": { "optimization_enabled": true }
+  },
+  "optimizer_timeout": {
+    "type": "int",
+    "description": "文本优化超时（秒）",
+    "default": 20,
+    "hint": "范围 1–120。优化超时后使用原文合成。三个阶段超时之和应小于 AstrBot 核心工具调用超时，并保留余量。",
+    "slider": { "min": 1, "max": 120, "step": 1 },
+    "condition": { "optimization_enabled": true }
+  },
+  "tts_timeout": {
+    "type": "int",
+    "description": "语音合成超时（秒）",
+    "default": 20,
+    "hint": "范围 1–120；等待 TTS 生成音频的最长时间，合成失败或超时后发送原文文字。",
+    "slider": { "min": 1, "max": 120, "step": 1 }
+  },
+  "send_timeout": {
+    "type": "int",
+    "description": "消息发送超时（秒）",
+    "default": 10,
+    "hint": "范围 1–60；适用于语音发送和原文文字回退。发送超时可能发生在平台已收到消息之后。",
+    "slider": { "min": 1, "max": 60, "step": 1 }
+  },
+  "max_concurrent_requests": {
+    "type": "int",
+    "description": "同时处理的语音请求数",
+    "default": 2,
+    "hint": "范围 1–8；达到上限时返回繁忙状态。",
+    "slider": { "min": 1, "max": 8, "step": 1 }
+  }
+}

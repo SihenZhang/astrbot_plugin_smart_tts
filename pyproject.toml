@@ -1,0 +1,26 @@
+[project]
+name = "astrbot-plugin-smart-tts"
+version = "0.1.0"
+description = "LLM-controlled speech replies using AstrBot-managed providers"
+requires-python = ">=3.11"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<10",
+    "ruff>=0.11,<1",
+    "docstring-parser>=0.16,<1",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ASYNC"]
